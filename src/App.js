@@ -1,29 +1,55 @@
 import React, { Component } from "react";
-import "./App.css";
 import axios from "axios";
+import MovieCard from "./components/MovieCard/MovieCard";
+import WatchList from "./components/WatchList/WatchList";
+
+import logo from "./images/film-logo.png";
+
+import "./reset.css";
+import "./App.css";
 
 class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			fortune: "Awaiting your orders..."
+			frontPage: {}
 		};
+
+		this.apiKey = "185d7c7b5d2f8cfd2241ab4cfc208a96";
+		this.api = "https://api.themoviedb.org/3";
+		this.lang = "language=en-US";
 	}
 
-	fetchData = () => {
-		axios.get("/data").then(res => {
+	componentDidMount() {
+		axios.get(`${this.api}/movie/popular?api_key=${this.apiKey}&${this.lang}&page=1`).then(res => {
 			this.setState({
-				fortune: res.data
+				frontPage: res.data
 			});
 		});
-	};
+	}
 
 	render() {
+		const { frontPage } = this.state;
+		let movieCards = [];
+
+		if (frontPage.results) {
+			movieCards = frontPage.results.map(movie => {
+				return <MovieCard key={movie.id} movie={movie} />;
+			});
+		} else {
+			movieCards = <p className="loading">Loading...</p>;
+		}
+
 		return (
 			<div className="App">
-				<h1>Tell me my fortune</h1>
-				<button onClick={this.fetchData}>Fetch Fortune</button>
-				<p>{this.state.fortune}</p>
+				<header>
+					<div className="logo">
+						<img src={logo} alt="" />
+						<h1>Movie List</h1>
+					</div>
+					<WatchList />
+				</header>
+				<main>{movieCards}</main>
 			</div>
 		);
 	}
