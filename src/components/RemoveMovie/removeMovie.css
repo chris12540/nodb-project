@@ -1,0 +1,16 @@
+.remove-movie {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: transparent;
+	border: none;
+	color: white;
+	text-shadow: 1px 1px 5px 1px black;
+	font-size: 25px;
+	display: none;
+}
+
+.watch-card:hover .remove-movie {
+	cursor: pointer;
+	display: block;
+}
