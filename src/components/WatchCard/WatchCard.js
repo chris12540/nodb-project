@@ -11,7 +11,14 @@ const WatchCard = props => {
 	return (
 		<div id={id} className="watch-card">
 			<h1 className="watch-title">{title}</h1>
-			<img src={"https://image.tmdb.org/t/p/w342" + poster_path} alt="" className="watch-poster" />
+			<img
+				src={"https://image.tmdb.org/t/p/w342" + poster_path}
+				alt=""
+				className="watch-poster"
+				onClick={() => {
+					props.displayModal(props.movie);
+				}}
+			/>
 			<p className="watch-overview">
 				{overview.length > overviewLength ? overview.substring(0, overviewLength) + "..." : overview}
 			</p>

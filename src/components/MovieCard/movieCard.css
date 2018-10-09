@@ -1,6 +1,13 @@
 .card {
 	width: 100%;
 	position: relative;
+	transition: transform 0.2s ease;
+}
+
+.card:hover {
+	cursor: pointer;
+	transform: scale(1.12);
+	z-index: 2;
 }
 
 .title {

@@ -1,0 +1,69 @@
+#modal-background {
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.2);
+	z-index: 4;
+	display: none;
+}
+
+#modal {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: rgb(45, 50, 60);
+	padding: 15px;
+	display: grid;
+	grid-template-columns: 1fr 250px;
+	grid-template-areas:
+		"poster title"
+		"poster overview"
+		"poster release";
+	gap: 20px;
+}
+
+.modal-poster {
+	grid-area: poster;
+}
+
+.modal-title {
+	grid-area: title;
+	text-align: center;
+	font-weight: lighter;
+	font-size: 30px;
+	margin-top: 20px;
+}
+.modal-overview {
+	grid-area: overview;
+	text-align: center;
+	line-height: 20px;
+	letter-spacing: 0.25px;
+}
+.modal-score {
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	color: black;
+	background: white;
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	line-height: 50px;
+	text-align: center;
+	border: 3px solid black;
+}
+.modal-release {
+	grid-area: release;
+}
+.close {
+	position: absolute;
+	top: 0;
+	right: 5px;
+	background: transparent;
+	border: none;
+	color: white;
+	font-size: 25px;
+}

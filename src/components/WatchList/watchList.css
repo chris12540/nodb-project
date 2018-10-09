@@ -1,6 +1,19 @@
 .watch-list {
-	min-height: 60px;
-	max-height: 175px;
+	width: 100%;
 	display: flex;
+	justify-content: flex-start;
 	overflow-y: scroll;
+}
+
+.watch-card {
+	width: 40px;
+	transition: 0.4s ease;
+}
+
+.watch-poster {
+	width: 100%;
+}
+
+.watch-list:hover .watch-card {
+	width: 150px;
 }

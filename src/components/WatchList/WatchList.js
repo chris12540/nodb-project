@@ -21,7 +21,12 @@ class WatchList extends Component {
 
 	render() {
 		const watchList = this.props.watchList.map(movie => (
-			<WatchCard key={movie.id} movie={movie} removeMovie={this.props.removeMovie} />
+			<WatchCard
+				key={movie.id}
+				movie={movie}
+				removeMovie={this.props.removeMovie}
+				displayModal={this.props.displayModal}
+			/>
 		));
 
 		return <div className="watch-list">{watchList}</div>;

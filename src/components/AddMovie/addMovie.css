@@ -17,6 +17,7 @@
 }
 
 .card:hover .add-movie {
+	z-index: 3;
 	display: block;
 }
 
